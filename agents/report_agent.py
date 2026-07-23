@@ -7,13 +7,14 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.agents import create_agent
 from langchain.tools import tool
 
-if "GOOGLE_API_KEY" not in os.environ:
-    os.environ["GOOGLE_API_KEY"] = getpass.getpass("Enter your Google AI API key: ")
+if "GOOGLE_API_KEY_REPORT" not in os.environ:
+    os.environ["GOOGLE_API_KEY_REPORT"] = getpass.getpass("Enter your Google report AI API key: ")
 
 
 model = ChatGoogleGenerativeAI(
     model="gemini-3.5-flash",
 )
+
 
 
 
@@ -33,3 +34,15 @@ Format:
 """)
 
 
+response = report_agent.invoke(
+    {
+        "messages": [
+            {
+                "role": "user",
+                "content": "Who is the president of usa?"
+            }
+        ]
+    }
+)
+
+print(response["messages"][-1].content)
