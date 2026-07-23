@@ -1,0 +1,4 @@
+python-dotenv
+pip install -U langchain-google-genai
+pip install --upgrade langchain
+pip install -qU langchain-deepseek
