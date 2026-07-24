@@ -2,7 +2,7 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 import getpass
-from tools.database import get_schema, execute_query
+from tools.database import get_schema, execute_query,list_tables
 
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.agents import create_agent
@@ -23,7 +23,8 @@ sql_agent = create_agent(
     model=model,
     tools=[
         get_schema,
-        execute_query
+        execute_query,
+        list_tables
     ],
     system_prompt="""
 You are a SQL Database Agent.
