@@ -7,6 +7,8 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.agents import create_agent
 from langchain.tools import tool
 
+from tools.report import create_markdown_report, create_pdf_report
+
 if "GOOGLE_API_KEY_REPORT" not in os.environ:
     os.environ["GOOGLE_API_KEY_REPORT"] = getpass.getpass("Enter your Google report AI API key: ")
 
@@ -19,6 +21,11 @@ model = ChatGoogleGenerativeAI(
 
 
 report_agent = create_agent(model=model,
+
+                            tools = [
+    create_markdown_report,
+    create_pdf_report
+],
                      system_prompt="""
 You are a Business Report Agent.
 
