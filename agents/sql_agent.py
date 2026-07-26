@@ -8,8 +8,8 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.agents import create_agent
 from langchain.tools import tool
 
-if "GOOGLE_API_KEY_REPORT" not in os.environ:
-    os.environ["GOOGLE_API_KEY_REPORT"] = getpass.getpass("Enter your Google report AI API key: ")
+if "GOOGLE_API_KEY_SQL" not in os.environ:
+    os.environ["GOOGLE_API_KEY_SQL"] = getpass.getpass("Enter your Google report AI API key: ")
 
 
 model = ChatGoogleGenerativeAI(
