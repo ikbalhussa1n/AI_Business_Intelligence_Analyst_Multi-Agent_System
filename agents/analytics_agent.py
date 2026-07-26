@@ -24,6 +24,7 @@ model = ChatGoogleGenerativeAI(
 )
 
 
+print("Analytics agent invoked")
 
 analytics_agent = create_agent(model=model,
 

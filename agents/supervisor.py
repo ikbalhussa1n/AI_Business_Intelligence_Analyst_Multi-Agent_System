@@ -16,6 +16,8 @@ model = ChatGoogleGenerativeAI(
 )
 
 
+print("Supervisor agent invoked")
+
 supervisor_agent = create_agent(model=model,
 
                      system_prompt=
@@ -34,5 +36,6 @@ supervisor_agent = create_agent(model=model,
                     Return a clear execution plan.
 """
 )
+
 
 

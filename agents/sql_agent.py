@@ -18,6 +18,8 @@ model = ChatGoogleGenerativeAI(
 
 
 
+print("SQL agent invoked")
+
 
 sql_agent = create_agent(
     model=model,
@@ -47,15 +49,15 @@ Never:
 )
 
 
-response = sql_agent.invoke(
-    {
-        "messages": [
-            {
-                "role": "user",
-                "content": "What our total revenue?"
-            }
-        ]
-    }
-)
+# response = sql_agent.invoke(
+#     {
+#         "messages": [
+#             {
+#                 "role": "user",
+#                 "content": "What our total revenue?"
+#             }
+#         ]
+#     }
+# )
 
-print(response["messages"][-1].content[0]["text"])
+# print(response["messages"][-1].content[0]["text"])

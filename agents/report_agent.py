@@ -18,6 +18,7 @@ model = ChatGoogleGenerativeAI(
 )
 
 
+print("Report agent invoked")
 
 
 report_agent = create_agent(model=model,
@@ -41,15 +42,15 @@ Format:
 """)
 
 
-response = report_agent.invoke(
-    {
-        "messages": [
-            {
-                "role": "user",
-                "content": "Who is the president of usa?"
-            }
-        ]
-    }
-)
+# response = report_agent.invoke(
+#     {
+#         "messages": [
+#             {
+#                 "role": "user",
+#                 "content": "Who is the president of usa?"
+#             }
+#         ]
+#     }
+# )
 
-print(response["messages"][-1].content)
+# print(response["messages"][-1].content)
