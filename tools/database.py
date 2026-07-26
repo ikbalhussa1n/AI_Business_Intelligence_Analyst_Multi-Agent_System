@@ -74,3 +74,30 @@ def execute_query(sql: str):
 
     except Exception as e:
         return f"SQL Error: {str(e)}"
+
+
+
+@tool
+def list_tables():
+    """
+    Returns all tables in the public schema.
+    """
+
+    conn = get_connection()
+
+    if conn is None:
+        return "Failed to connect."
+
+    try:
+        with conn.cursor() as cursor:
+            cursor.execute("""
+                SELECT table_name
+                FROM information_schema.tables
+                WHERE table_schema='public'
+                ORDER BY table_name;
+            """)
+
+            return [row[0] for row in cursor.fetchall()]
+
+    finally:
+        conn.close()
